@@ -41,7 +41,7 @@ class ScheduleController extends Controller
 
         foreach($teams as $host)
             foreach($teams as $guest)
-                if($host->id != $guest->id && !in_array(array('host'=>$guest,'guest'=>$host), $rows))
+                if($host->id != $guest->id && $host->group == $guest->group &&!in_array(array('host'=>$guest,'guest'=>$host), $rows))
                     $rows[] = array('host'=>$host,'guest'=>$guest);
         
         return view('schedule.index',compact('rows'));
