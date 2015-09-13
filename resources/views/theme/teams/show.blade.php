@@ -53,10 +53,10 @@
         </div>
       </div>
       <div class="col-sm-6">
-         <ul class="nav nav-pills nav-stacked">
+         <ul class="list-group">
          	<h2>Състав</h2>
             @foreach($players as $player)
-            <li>{{$player->name}}</li>
+            <li class="list-group-item">{{$player->name}}</li>
             @endforeach
          </ul>
       </div>
