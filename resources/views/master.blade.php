@@ -15,11 +15,8 @@
     <script src="{{url('js/html5shiv.js')}}"></script>
     <script src="{{url('js/respond.min.js')}}"></script>
     <![endif]-->       
-    <link rel="shortcut icon" href="images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{url('images/ico/apple-touch-icon-144-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{url('images/ico/apple-touch-icon-114-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{url('images/ico/apple-touch-icon-72-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" href="{{url('images/ico/apple-touch-icon-57-precomposed.png')}}">
+    <link rel="shortcut icon" href="{{url('images/ico/apple-touch-icon-72-precomposed.png')}}">
+    
 </head><!--/head-->
 <body>
     <header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner">
@@ -52,7 +49,7 @@
             <div class="row">
                 <div class="col-md-4 col-sm-4">
                     <h4>За нас</h4>
-                    <p>Аматьорски турнир по футбол.Събраните средства от таксите на участниците и даренията на зрителите ще бъдат предоставени на нуждаещи се.</p>
+                    <p>Смолян Къп е благотворителен спортен турнир, който се провежда вече 5 години в гр. Смолян. Идеята е докато спортуваме и се забавляваме с приятели да помагаме. За тези 5 години бяха организирани  повече от 20 футболни турнири и дарени повече от 25 000 лв, като участваха повече от 150 футболиста средно във всеки един от турнирите.</p>
                     
                 </div><!--/.col-md-3-->
 
@@ -63,6 +60,7 @@
                         <strong>Телефон</strong><br>
                         <abbr title="Антоан Шотаров">Мобилен</abbr>:  359 887 656 443
                     </address>
+                    
                     
                 </div> <!--/.col-md-3-->
                 <div class="col-md-4 col-sm-4">
@@ -101,4 +99,5 @@
     <script src="{{url('js/jquery.prettyPhoto.js')}}"></script>
     <script src="{{url('js/main.js')}}"></script>
     @yield('footer')
+</body>
 </html>

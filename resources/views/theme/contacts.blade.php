@@ -66,8 +66,8 @@
         	<p>Цветан Петров</p>
        </div>
         <div class="col-sm-6">
-        		<p>Телефон: 359 88 3 60 46 77</p>
-        		<p>Email: viktor.lale@yahoo.com</p>
+        		<p>Телефон: 359 87 8 65 54 71</p>
+        		
         	</div>
  </div>
   <div class="row">
@@ -76,10 +76,7 @@
         
         	<p>Божидар Шуманов</p>
        </div>
-        <div class="col-sm-6">
-        		<p>Телефон: 359 88 3 60 46 77</p>
-        		<p>Email: viktor.lale@yahoo.com</p>
-        	</div>
+        
  </div>
   <div class="row">
 
@@ -87,10 +84,7 @@
         
         	<p>Младен Кадиев</p>
        </div>
-        <div class="col-sm-6">
-        		<p>Телефон: 359 88 3 60 46 77</p>
-        		<p>Email: viktor.lale@yahoo.com</p>
-        	</div>
+        
  </div>
   <div class="row">
 
