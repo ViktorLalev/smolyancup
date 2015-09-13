@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Request;
+use Illuminate\Http\Request;
 
-use App\Http\Requests;
+//use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Team;
 use App\Player;
+use Slugify;
 
 class TeamsController extends Controller
 {
@@ -20,7 +21,7 @@ class TeamsController extends Controller
     {
         $teams= Team::all();
 
-        return view('teams.index',compact('teams'));
+        return view('theme.teams.index',compact('teams'));
     }
     /**
      * Display the specified group.
@@ -32,7 +33,7 @@ class TeamsController extends Controller
     {
         $teams= Team::where('group',$group)->latest('points')->get();
         //return $teams;
-        return view('teams.showByGroup',compact('teams','group'));
+        return view('theme.teams.showByGroup',compact('teams','group'));
     }
 
     /**
@@ -42,7 +43,7 @@ class TeamsController extends Controller
      */
     public function create()
     {
-        return view('teams.create');
+        return view('theme.registration');
     }
 
     /**
@@ -54,25 +55,31 @@ class TeamsController extends Controller
     public function store(Request $request)
     {
 
-        $input=Request::all();
-
+        
+           
         $team= new Team;
-        $team->name=Request::get('name');
-        $team->slug=Request::get('slug');
-        $team->email=Request::get('email');
-        $team->phone=Request::get('phone');
+        $team->name=$request->get('name');
+        $team->slug=$this->generateSlug($team->name);
+        $team->email=$request->get('email');
+        $team->phone=$request->get('phone');
+        
         $team->save();
 
+        $playersArray=$request->get('players');
 
-        $player=new Player;
-        $player->name=Request::get('player_name');
-        $player->team_id=$team->id;
+        
+        $i=0;
+        $players=null;
+        foreach ($playersArray as $p) {
 
-        $team->players()->save($player);
+              $players[$i] =new Player;
+              $players[$i]->name=$p;
+              $players[$i]->team_id=$team->id;
+              $i++;
+        }   
+       
 
-
-
-       // Player::insert();
+      $team->players()->saveMany($players);
 
         return redirect('teams');
     }
@@ -87,7 +94,7 @@ class TeamsController extends Controller
     {
         $team= Team::where('slug',$slug)->first();
         $players=$team->players;
-        return view('teams.show',compact('team','players'));
+        return view('theme.teams.show',compact('team','players'));
     }
     
    
@@ -116,13 +123,35 @@ class TeamsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Generate Slug
      *
-     * @param  int  $id
+     * @param  string  $name
      * @return Response
      */
-    public function destroy($id)
+    protected function generateSlug($name)
     {
-        //
+        $url = Slugify::slugify($this->transliterate($name));
+        return $url;
     }
+    protected function transliterate($name)
+    {
+        $char_map = array(
+        
+        'А' => 'A', 'Б' => 'B', 'В' => 'V', 'Г' => 'G', 'Д' => 'D', 'Е' => 'E',  'Ж' => 'Zh',
+        'З' => 'Z', 'И' => 'I', 'Й' => 'J', 'К' => 'K', 'Л' => 'L', 'М' => 'M', 'Н' => 'N', 'О' => 'O',
+        'П' => 'P', 'Р' => 'R', 'С' => 'S', 'Т' => 'T', 'У' => 'U', 'Ф' => 'F', 'Х' => 'H', 'Ц' => 'C',
+        'Ч' => 'Ch', 'Ш' => 'Sh', 'Щ' => 'Sh', 'Ъ' => '', 'Ы' => 'Y', 'Ь' => '',  'Ю' => 'Yu',
+        'Я' => 'Ya',
+        'а' => 'a', 'б' => 'b', 'в' => 'v', 'г' => 'g', 'д' => 'd', 'е' => 'e',  'ж' => 'zh',
+        'з' => 'z', 'и' => 'i', 'й' => 'j', 'к' => 'k', 'л' => 'l', 'м' => 'm', 'н' => 'n', 'о' => 'o',
+        'п' => 'p', 'р' => 'r', 'с' => 's', 'т' => 't', 'у' => 'u', 'ф' => 'f', 'х' => 'h', 'ц' => 'c',
+        'ч' => 'ch', 'ш' => 'sh', 'щ' => 'sh', 'ъ' => '',  'ь' => '',  'ю' => 'yu',
+        'я' => 'ya',
+        
+    );
+
+       return str_replace(array_keys($char_map), $char_map, $name);
+
+    }
+
 }

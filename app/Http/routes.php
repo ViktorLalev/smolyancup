@@ -14,12 +14,19 @@
 Route::get('/', function () {
     
 	$teams= \App\Team::all();
-	return view('welcome',compact('teams'));
+	return view('theme.index',compact('teams'));
     
 });
-Route::get('/contacts', function(){
-	return view('contacts');
+Route::get('/terms', function(){
+	return view('theme.terms');
 });
+Route::get('/contacts', function(){
+	return view('theme.contacts');
+});
+Route::post('/contacts','PagesController@sendEmail');
 Route::resource('/teams', 'TeamsController');
-Route::get('/groups/{group}', 'TeamsController@showByGroup');
+//Route::get('/groups/{group}', 'TeamsController@showByGroup');
+Route::get('/schedule', function(){
+	return view('theme.soon');
+});
 Route::resource('/schedule/{group?}', 'ScheduleController@generateScheduleByGroup');
