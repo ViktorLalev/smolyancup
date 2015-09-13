@@ -1,7 +1,11 @@
-<ul class="nav nav-pills nav-stacked">
+<ul class="list-group" style="padding-top:20px">
 	@foreach($teams as $team)
 	
-	<li><a href="{{url('/teams',$team->slug)}}">{{$team->name}}</a></li>
-		
+    	<li class="list-group-item">
+            <a href="{{url('/teams',$team->slug)}}">
+                <h4>{{$team->name}}</h4>   
+            </a>
+        </li>
+    		
 	@endforeach
 </ul>
