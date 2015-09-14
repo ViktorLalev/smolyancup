@@ -1,6 +1,6 @@
 @extends("master")
 
-@section('title','Програма | SmolaynCup')
+@section('title','Програма | SmolyanCup')
 
 @section('content')
 	

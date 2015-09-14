@@ -1,6 +1,6 @@
 @extends("master")
 
-@section('title','Контакти | SmolaynCup')
+@section('title','Контакти | SmolyanCup')
 
 @section('content')
 <section id="title" class="emerald">

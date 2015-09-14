@@ -96,7 +96,7 @@
         e.preventDefault();
         if(x < max_fields){ //max input box allowed
             x++; //text box increment
-            $(wrapper).append('<div class="row"><div class="col-md-3"><label for="player_name">Играч '+x+':</label></div><div class="col-md-9"><input class="form-control" name="player_name[0]" type="text"></div></div>'); //add input box
+             $(wrapper).append('<div class="row"><div class="col-md-3"><label for="players['+x+']">Играч '+x+':</label></div><div class="col-md-9"><input class="form-control" name="players['+x+']" type="text"></div></div>'); //add input box
         }
     });
 

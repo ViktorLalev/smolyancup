@@ -1,5 +1,7 @@
 @extends("master")
 
+@section('title','Отбори | SmolyanCup')
+
 @section('content')
 <section id="title" class="emerald">
         <div class="container">

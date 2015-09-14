@@ -1,11 +1,13 @@
 @extends("master")
 
-@section('title','SmolaynCup')
+@section('title','SmolyanCup')
 
 @section('main-slider')
 
-<section class="section-fw section-css-parallax no-content text-light space-bottom-3x" style="background-image:url(http://the8guild.com/themes/html/creativebundle/triumph/img/homepage/corporate/static-image/01.jpg);">
-</section>
+<header >
+<img src="{{url('images/header.png')}}" width='100%'>
+
+</header>
 
 @section('content')
        <div class="container">

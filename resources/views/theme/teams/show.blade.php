@@ -1,5 +1,7 @@
 @extends("master")
 
+@section('title','SmolyanCup')
+
 @section('content')
 
 <section id="title" class="emerald">
