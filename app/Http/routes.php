@@ -27,6 +27,6 @@ Route::post('/contacts','PagesController@sendEmail');
 Route::resource('/teams', 'TeamsController');
 Route::get('/groups/{group}', 'TeamsController@showByGroup');
 Route::get('/schedule', function(){
-	return view('theme.soon');
+	return view('theme.googleschedule');
 });
 Route::resource('/schedule/{group?}', 'ScheduleController@generateScheduleByGroup');
